@@ -3,20 +3,19 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 function App() {
-  // Initialize FrappeApp and database
-  // const getSiteName = () => {
-  //   if (
-  //     window.frappe?.boot?.versions?.frappe &&
-  //     (window.frappe.boot.versions.frappe.startsWith("15") ||
-  //       window.frappe.boot.versions.frappe.startsWith("16"))
-  //   ) {
-  //     return window.frappe?.boot?.sitename ?? import.meta.env.VITE_SITE_NAME;
-  //   }
-  //   return import.meta.env.VITE_SITE_NAME;
-  // };
+  const getSiteName = () => {
+    if (
+      window.frappe?.boot?.versions?.frappe &&
+      (window.frappe.boot.versions.frappe.startsWith("15") ||
+        window.frappe.boot.versions.frappe.startsWith("16"))
+    ) {
+      return window.frappe?.boot?.sitename ?? import.meta.env.VITE_SITE_NAME;
+    }
+    return import.meta.env.VITE_SITE_NAME;
+  };
 
-  // const frappeUrl = getSiteName();
-  const frappeUrl = "http://194.31.55.40:15000/";
+  const frappeUrl = getSiteName();
+  // const frappeUrl = "http://194.31.55.40:15000/";
 
   var frappe = new FrappeApp(frappeUrl);
   const db = frappe.db();
